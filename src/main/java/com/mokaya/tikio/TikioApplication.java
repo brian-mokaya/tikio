@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TikioApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TikioApplication.class, args);
-	}
+    public static void main(String[] args) {
+
+        SpringApplication.run(TikioApplication.class, args);
+
+        System.out.println("Tikio Started Successfully");
+    }
 
 }
