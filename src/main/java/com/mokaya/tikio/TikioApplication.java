@@ -10,7 +10,8 @@ public class TikioApplication {
 
         SpringApplication.run(TikioApplication.class, args);
 
-        System.out.println("Tikio Started Successfully");
+        System.out.println("Tikio Started Successfully ");
     }
-
 }
+
+
