@@ -39,10 +39,18 @@ public class UserServiceImpl implements UserService {
                 .enabled(true)
                 .build();
 
+        // Persist the user first so it has an id for the profile's foreign key
+        User savedUser = userRepository.save(user);
+
         Profile profile = new Profile();
-        profile.setUser(user); // link profile to the user
+        profile.setUser(savedUser); // link profile to the persisted user
+        // set both sides for consistency
+        savedUser.setProfile(profile);
+
+        // Now save the profile (profile is the owning side)
         profileRepository.save(profile);
-        return userRepository.save(user);
+
+        return savedUser;
     }
 
     @Override
