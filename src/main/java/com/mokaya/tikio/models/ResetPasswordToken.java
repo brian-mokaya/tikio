@@ -28,5 +28,6 @@ public class ResetPasswordToken {
     @Column(nullable = false)
     private LocalDateTime expiryDate;
 
+    @Builder.Default
     private boolean used = false;
 }

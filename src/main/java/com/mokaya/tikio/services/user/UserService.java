@@ -8,4 +8,6 @@ public interface UserService {
     User findByEmail(String email);
 
     User findByUsername(String username);
+
+    boolean checkPassword(String password, String password1);
 }

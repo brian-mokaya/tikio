@@ -4,6 +4,7 @@ import com.mokaya.tikio.models.Profile;
 import com.mokaya.tikio.repositories.ProfileRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class ProfileServiceImpl implements ProfileService {
 
     private final ProfileRepository profileRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -26,6 +28,7 @@ public class ProfileServiceImpl implements ProfileService {
 
         return profile; // persistence context auto-updates due to @Transactional
     }
+
 
     @Override
     public Profile getProfileByUserId(Long userId) {

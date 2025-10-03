@@ -34,11 +34,14 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private Role role = Role.USER;
 
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private UserStatus status = UserStatus.ACTIVE;
 
+    @Builder.Default
     private boolean enabled = true;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
