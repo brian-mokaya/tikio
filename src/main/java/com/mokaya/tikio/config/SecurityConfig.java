@@ -21,15 +21,18 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
+                                // Auth endpoints (include all under /api/v1/auth/**)
+                                "/api/v1/auth/**",
+                                // Backward compatibility (if any other register path exists)
                                 "/api/v1/users/register",
-                                "/api/v1/auth/login",
-                                "/api/v1/auth/register",
                                 // OpenAPI / Swagger endpoints
                                 "/v3/api-docs/**",
                                 "/v3/api-docs.yaml",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
-                                "/swagger-ui/index.html"
+                                "/swagger-ui/index.html",
+                                // H2 console
+                                "/h2-console/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
