@@ -12,10 +12,10 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     private final Key key;
-    private final Constants constants;
+//    private final Constants constants;
 
     public JwtUtil(Constants constants) {
-        this.constants = constants;
+//        this.constants = constants;
         this.key = Keys.hmacShaKeyFor(constants.secret.getBytes());
     }
 
